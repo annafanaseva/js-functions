@@ -1,11 +1,11 @@
 let fruits = ["Яблоко", "Апельсин", "Слива", "Груша", "Банан", "Мандарин"];
 
-for (var i = 0; i < fruits.length; i++) {
+for (let i = 0; i < fruits.length; i++) {
   //console.log(i);
   //console.log(fruits[i]);
 }
 
-for (var i = fruits.length - 1; i > 0; i--) {
+for (let i = fruits.length - 1; i > 0; i--) {
   //console.log(fruits[i]);
   //console.log(i);
 }
@@ -18,7 +18,7 @@ for (var i = fruits.length - 1; i > 0; i--) {
 
 // циклы + доступ к символам через индекс
 function logAllChars(str) {
-  for (var i = 0; i < str.length; i++) {
+  for (let i = 0; i < str.length; i++) {
     console.log(str[i]);
   };
 };
@@ -29,7 +29,7 @@ function logAllChars(str) {
 //Дана строка 'frontend$developer$wow. Замените все $ на * с помощью глобального поиска и замены.  
 
 function replaceChars(str) {
-  console.log(str.replace('$', '*'));
+  return str.replace('$', '*');
 };
 
 //replaceChars('frontend$developer$wow');
@@ -39,7 +39,7 @@ function replaceChars(str) {
 
 let str = 'I am learning frontend development';
 const convertStringToArray = (str) => {
-  return str.split(' ');
+  str.split(' ');
 };
 
 let result = convertStringToArray(str);
@@ -51,17 +51,17 @@ let result = convertStringToArray(str);
 //количества символов.
 
 const removeSymbols = (str, length) => {
-  console.log(str.slice(length));
+  return str.slice(length);
 }
 
 const removeSymbolsSecond = (str, length) => {
-  for (var i = 0; i < length; i++) {
-    console.log(str[i]);
+  for (let i = 0; i < length; i++) {
+    return str[i];
   };
 }
 
-//removeSymbols('development', 5)
-//removeSymbolsSecond('development', 5)
+//console.log(removeSymbols('development', 5));
+//console.log(removeSymbolsSecond('development', 5));
 
 //4. 
 //Напишите функцию pasteDashesIntoString(str), которая принимает строку str в качестве аргумента и вставляет 
@@ -72,14 +72,14 @@ pasteDashesIntoString = (str) => {
   return str.toUpperCase().split('').join('-');
 }
 
-//console.log(pasteDashesIntoString("Привет"));
+//pasteDashesIntoString("Привет");
 
 //5. 
 //Напишите функцию makeStringLowerCased(str), которая принимает строку str в качестве аргумента и 
 //переводит в нижний регистр.
 
 makeStringLowerCased = (str) => {
-  console.log(str.toLowerCase())
+  return str.toLowerCase();
 }
 
 //makeStringLowerCased(pasteDashesIntoString("привет"))
@@ -90,17 +90,15 @@ makeStringLowerCased = (str) => {
 
 function capitaliseAllWords(str) {
   let wordList = str.split(' ');
-  let newArr = [];
-  for (var i = 0; i < wordList.length; i++) {
+  for (let i = 0; i < wordList.length; i++) {
     let arr = wordList[i].split('');
     arr[0] = arr[0].toUpperCase();
-    newArr = arr.join('');
-    wordList[i] = newArr;
+    wordList[i] = arr.join('');
   }
   return wordList.join(' ');
 }
 
-//console.log(capitaliseAllWords("hello world"));
+capitaliseAllWords("hello world");
 
 //7. 
 //Напишите функцию makeFirstLetterUpperCased(str), которая принимает строку str в качестве аргумента и 
@@ -110,7 +108,7 @@ function capitaliseAllWords(str) {
 function makeFirstLetterUpperCased(str) {
   let arr = str.split('');
   arr[0] = arr[0].toUpperCase();
-  console.log(arr.join(''));
+  return arr.join('');
 }
 
 //makeFirstLetterUpperCased('ann');
@@ -123,7 +121,7 @@ function makeFirstLetterUpperCased(str) {
 function changeLetterRegisterFirst(str) {
   let arr = str.split('');
 
-  for (var i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     if (arr[i] === arr[i].toUpperCase()) {
       arr[i] = arr[i].toLowerCase();
       continue;
@@ -148,28 +146,25 @@ function changeLetterRegisterFirst(str) {
 
 function changeLetterRegister(str) {
   let arr = str.split('');
-  for (var i = 0; i < arr.length; i++) {
-    if (i % 2 === 0) {
+  for (let i = 0; i < arr.length; i++) {
+    if (!(i % 2)) {
       arr[i] = arr[i].toUpperCase()
     }
   }
   return arr.join('');
 }
-
-//console.log(changeLetterRegister('«джаваскрипт»'))
+changeLetterRegister('«джаваскрипт»')
 
 //10.
 //Напишите функцию addZeros(num, len, sign), которая дополняет нулями до указаной длины 
 //числовое значение с дополнительным знаком «+» или « -« в зависимости от передаваемого аргумента.
 
 function addZeros(num, len, sign) {
-  console.log(typeof (num))
+  console.log(typeof (num));
   let str2 = String(num);
-  console.log(str2)
   let arr = str2.split('');
-  console.log(arr.length)
   if (len > arr.length) {
-    for (var i = arr.length; i < arr.length + len - arr.length; i++) {
+    for (let i = arr.length; i < arr.length + len - arr.length; i++) {
       arr.push(0);
     }
   }
@@ -181,18 +176,12 @@ function addZeros(num, len, sign) {
 //11. 
 //Напишите функцию compareStrings(str1, str2), которая сравнивает строки без учёта регистра символов.
 
-function compareStrings(str1, str2) {
-  console.log((str1.toLowerCase()));
-  console.log(str2.toLowerCase());
-  if (str1.toLowerCase() === str2.toLowerCase()) {
-    console.log(true)
-  } else {
-    console.log(false)
-  }
+const compareStrings = (str1, str2) => {
+  return (str1.toLowerCase() === str2.toLowerCase());
 }
 
-// compareStrings('string', 'StRiNg'); // true
-// compareStrings('JavaScript', 'JavaScriptonite');   // false
+//console.log(compareStrings('string', 'StRiNg')); // true
+//console.log(compareStrings('JavaScript', 'JavaScriptonite'));   // false
 
 //12. 
 //Напишите функцию repeatStr(str, n), которая вовращает строку повторяемую определённое количество раз. 
@@ -200,7 +189,7 @@ function compareStrings(str1, str2) {
 
 function repeatStr(str, n) {
   let newArr = [];
-  for (var i = 0; i < n; i++) {
+  for (let i = 0; i < n; i++) {
     newArr.push(str);
   }
   return newArr;
@@ -217,16 +206,16 @@ const pathname = "/home/user/landing/index.js";
 const getPathname = (pathname) => {
   let index
   let arr = pathname.split('')
-  for (var i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     if (arr[i] === '/') {
       index = i;
     }
   }
   pathname = arr.join('').slice(index + 1);
-  console.log(pathname);
+  return pathname;
 };
 
-//getPathname(pathname); // index.js
+//console.log(getPathname(pathname)); // index.js
 
 //14. Напишите функцию getSubstring(str, char, pos), которая возвращает часть строки, 
 //расположенную после или до указанного символа char в зависимости от параметра pos.
@@ -234,7 +223,7 @@ const getPathname = (pathname) => {
 function getSubstring(str, char, pos) {
   let arr = str.split(' ');
   let newArr = [];
-  for (var i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     if (arr[i] === char && pos === 'after') {
       newArr.push(arr.splice(i, arr.length - 1));
       //console.log(newArr);
@@ -257,7 +246,7 @@ function getSubstring(str, char, pos) {
 
 let arr = [];
 
-for (var i = 1; i <= 9; i++) {
+for (let i = 1; i <= 9; i++) {
   arr.push(i);
 }
 
@@ -274,7 +263,7 @@ str = arr.join('');
 
 arr = [];
 
-for (var i = 0; i < 12; i++) {
+for (let i = 0; i < 12; i++) {
   arr.push('x');
   // console.log(arr.join(''));
 }
@@ -294,8 +283,8 @@ for (var i = 0; i < 12; i++) {
 // Обратите внимание: первый цикл имеет счетчик i, второй j, а если будет еще и третий цикл - то у него счетчик будет переменная k. Это стандартные общепринятые названия, следует пользоваться именно ими.
 arr = [];
 
-for (var i = 1; i < 10; i++) {
-  for (var j = 1; j <= i; j++) {
+for (let i = 1; i < 10; i++) {
+  for (let j = 1; j <= i; j++) {
     arr = [];
     arr.push(i);
     str = arr.join('');
@@ -312,7 +301,7 @@ for (var i = 1; i < 10; i++) {
 
 arr = [];
 
-for (var i = 1; i <= 5; i++) {
+for (let i = 1; i <= 5; i++) {
   arr.push('x' + 'x');
   // console.log(arr.join(''));
 }
@@ -329,8 +318,8 @@ for (var i = 1; i <= 5; i++) {
 // 999
 arr = [];
 
-for (var i = 1; i < 10; i++) {
-  for (var j = 1; j <= 3; j++) {
+for (let i = 1; i < 10; i++) {
+  for (let j = 1; j <= 3; j++) {
     arr = [];
     arr.push(i);
     str = arr.join('');
@@ -343,7 +332,7 @@ for (var i = 1; i < 10; i++) {
 
 function goThroughArray(list) {
   arr = list.split('');
-  for (var i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     console.log(arr[i]);
   }
 }
@@ -364,21 +353,21 @@ let newArr = arr1.concat(arr2);
 arr = [1, 2, 3, 4, 5];
 newArr = arr.splice(1, 2);
 
-console.log(arr);
+//console.log(arr);
 
 // 9. Дан массив [1, 2, 3, 4, 5]. С помощью метода splice запишите в новый массив элементы [2, 3, 4].
 
 arr = [1, 2, 3, 4, 5];
 newArr = arr.splice(1, 3);
 
-console.log(newArr);
+//console.log(newArr);
 
 // 10. Дан массив [1, 2, 3, 4, 5]. С помощью метода splice сделайте из него массив [1, 2, 3, 'a', 'b', 'c', 4, 5].
 
 arr = [1, 2, 3, 4, 5];
 newArr = arr.splice(3, 0, 'a', 'b', 'c');
 
-console.log(arr);
+//console.log(arr);
 
 // 11.  Дан массив [1, 2, 3, 4, 5]. С помощью метода splice сделайте из него массив [1, 'a', 'b', 2, 3, 4, 'c', 5, 'e'].
 
@@ -387,12 +376,14 @@ arr.splice(1, 0, 'a', 'b');
 arr.splice(6, 0, 'c');
 arr.splice(8, 0, 'e');
 
-console.log(arr);
+//console.log(arr);
 
 // 12. Дан массив [3, 4, 1, 2, 7]. Отсортируйте его.
 
 arr = [3, 4, 1, 2, 7];
-console.log(arr.sort());
+// console.log(arr.sort(function (a, b) {
+//   return a - b;
+// }));
 
 // 13. Дан объект {js:'test', jq: 'hello', css: 'world'}. Получите массив его ключей.
 
@@ -401,21 +392,21 @@ arr = [];
 for (let item in myObject) {
   arr.push(item);
 }
-console.log(arr)
+//console.log(arr)
 
 // 14. Дана строка, например, '123456'. 
 //Переверните эту строку (сделайте из нее '654321') не используя цикл.
 str = '123456';
 arr = str.split('').reverse();
 newStr = arr.join('');
-console.log(newStr)
+//console.log(newStr)
 
 // 15. Дана строка. Сделайте заглавным первый символ этой строки не используя цикл.
 //Найдите два решения
 str = 'hello';
 arr = str.split('');
 arr[0] = arr[0].toUpperCase();
-console.log(arr.join(''));
+//console.log(arr.join(''));
 
 // 16. Проверьте, что строка начинается на http://.
 
@@ -423,19 +414,14 @@ str = 'http://ann-afanaseva.ru';
 arr = str.split('')
 newArr = arr.splice(0, 7);
 
-if (newArr.join('') === 'http://') {
-  //console.log(true);
-}
+//console.log(newArr.join('') === 'http://');
 
 // 17. Проверьте, что строка заканчивается на .html
 
 str = 'index.html';
-arr = str.split('')
-newArr = arr.splice(arr.length - 5, arr.length);
+newArr = str.split('').splice(str.split('').length - 5, str.split('').length);
 
-if (newArr.join('') === '.html') {
-  //console.log(true);
-}
+//console.log(newArr.join('') === '.html')
 
 // 18. Дан массив с числами. Проверьте, что в этом массиве есть число 5. 
 //Если есть - выведите 'да', а если нет - выведите 'нет'.
@@ -443,7 +429,7 @@ if (newArr.join('') === '.html') {
 arr = [-5, 0, 3, 4, 7];
 let isInArray = false;
 
-for (var i = 0; i < arr.length; i++) {
+for (let i = 0; i < arr.length; i++) {
   if (arr[i] === 5) {
     isInArray = true;
     break;
@@ -466,12 +452,12 @@ if (isInArray) {
 let num = 5;
 let isPrime = false;
 
-for (var i = 2; i < num; i++) {
-  if (num % i != 0) {
-    isPrime = false;
+for (let i = 2; i < num; i++) {
+  if (!(num % i)) {
+    isPrime === false;
   }
-  if (num % i === 0) {
-    isPrime = true;
+  if (num % i) {
+    isPrime === true;
     break;
   }
 }
@@ -485,7 +471,7 @@ for (var i = 2; i < num; i++) {
 arr = [1, 2, 2, 3, 4];
 let isSubsequence = false;
 
-for (var i = 0; i < arr.length - 1; i++) {
+for (let i = 0; i < arr.length - 1; i++) {
   if (arr[i] === arr[i + 1]) {
     isSubsequence = true;
     break;
@@ -493,15 +479,15 @@ for (var i = 0; i < arr.length - 1; i++) {
     isSubsequence = false;
   }
 }
-//console.log(isSubsequence);
+console.log(isSubsequence);
 
 // 21. Заполните массив следующим образом: в первый элемент запишите '1', 
 //во второй '22', в третий '333' и так далее (два цикла)
 
 arr = [];
 
-for (var i = 1; i < 6; i++) {
-  for (var j = 1; j <= i; j++) {
+for (let i = 1; i < 6; i++) {
+  for (let j = 1; j <= i; j++) {
     arr.push(i);
   }
 }
@@ -511,7 +497,7 @@ for (var i = 1; i < 6; i++) {
 max = -1;
 arr = [4, 2, 2, 3, 1];
 
-for (var i = 0; i < arr.length; i++) {
+for (let i = 0; i < arr.length; i++) {
   if (arr[i] > max) {
     max = arr[i]
   }
@@ -522,7 +508,7 @@ for (var i = 0; i < arr.length; i++) {
 min = 10000;
 arr = [4, 2, 2, 3, 1, 0];
 
-for (var i = 0; i < arr.length; i++) {
+for (let i = 0; i < arr.length; i++) {
   if (arr[i] < min) {
     min = arr[i]
   }
@@ -530,9 +516,9 @@ for (var i = 0; i < arr.length; i++) {
 //console.log(min);
 
 // 24. Дан массив чисел, найдите среднее арифметическое всех чисел
-let Sum = 0;
-for (var i = 0; i < arr.length; i++) {
-  Sum += arr[i]
+let sum = 0;
+for (let i = 0; i < arr.length; i++) {
+  sum += arr[i]
 }
 //console.log(Sum / arr.length);
 
@@ -549,9 +535,10 @@ for (var i = 0; i < arr.length; i++) {
 newArr = [];
 
 const fill = (arraySize, value) => {
-  for (var i = 0; i < arraySize; i++) {
+  for (let i = 0; i < arraySize; i++) {
     newArr.push(value);
   }
+
   return newArr;
 }
 //console.log(fill(5, 'a'));
@@ -568,9 +555,10 @@ const fill = (arraySize, value) => {
 newArr = [];
 
 const reverse = (array) => {
-  for (var i = array.length - 1; i >= 0; i--) {
+  for (let i = array.length - 1; i >= 0; i--) {
     newArr.push(array[i])
   }
+
   return newArr;
 }
 
@@ -589,11 +577,12 @@ const reverse = (array) => {
 newArr = [];
 
 const compact = (arr) => {
-  for (var i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     if (arr[i] != false && arr[i] != undefined && arr[i] != '' && arr[i] != null && arr[i] != 0) {
       newArr.push(arr[i]);
     }
   }
+
   return newArr;
 }
 
@@ -613,11 +602,12 @@ const compact = (arr) => {
 obj = {};
 
 const fromPairs = (array) => {
-  for (var i = 0; i < array.length; i++) {
-    for (var j = 0; j < array[i].length; j++) {
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array[i].length; j++) {
       obj[array[i]] = array[i][j];
     }
   }
+
   return obj;
 }
 
@@ -635,13 +625,14 @@ const fromPairs = (array) => {
 //   * @returns {Array}
 
 function without() {
-  for (var i = 1; i < arguments.length; i++) {
-    for (var j = 0; j < arguments[0].length; j++) {
+  for (let i = 1; i < arguments.length; i++) {
+    for (let j = 0; j < arguments[0].length; j++) {
       if (arguments[0][j] === arguments[i]) {
         arguments[0].splice(j, 1);
       }
     }
   }
+
   return arguments[0];
 }
 
@@ -659,7 +650,7 @@ console.log(without([1, 2, 3, 1, 2], 1, 2)); // [3]
 function unique(array) {
   let newArr = [];
 
-  for (var i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length; i++) {
     if (!newArr.includes(array[i])) {
       newArr.push(array[i]);
     }
@@ -680,28 +671,54 @@ console.log(unique([1, 2, 1, 2, 3])); // [1, 2, 3]
 
 const isEqual = (firstArray, secondArray) => {
   let result = false;
-
   if (firstArray.length === secondArray.length) {
-    for (var i = 0; i < firstArray.length; i++) {
-      if (firstArray[i] === secondArray[i]) {
-        result = true;
-      } else {
-        result = false
-      }
+    for (let i = 0; i < firstArray.length; i++) {
+      result = (firstArray[i] === secondArray[i]);
     }
   }
-  else {
-    result = false
-
-  } return result
+  return result;
 }
-
 
 arr1 = [1, 2, 3, 4];
 arr2 = [1, 2, 3, 4];
-let arr3 = [1, 2, 3, 5];
-let arr4 = [1, 2, 3, 4, 5];
+const arr3 = [1, 2, 3, 5];
+const arr4 = [1, 2, 3, 4, 5];
 
-console.log(isEqual(arr1, arr2)); // true
-console.log(isEqual(arr1, arr3)); // false
-console.log(isEqual(arr1, arr4)); // false
+//console.log(isEqual(arr1, arr2)); // true
+//console.log(isEqual(arr1, arr3)); // false
+//console.log(isEqual(arr1, arr4)); // false
+
+//1. Дан массив с числами. Выведите последовательно его элементы используя рекурсию и не используя цикл.
+
+arr = [1, 2, 3, 4];
+let i = 0;
+
+let displaySequence = (arr) => {
+  console.log(arr[i]);
+  i++;
+  if (i < arr.length) {
+    displaySequence(arr);
+  }
+}
+
+//displaySequence(arr);
+
+//2. Дано число. Сложите его цифры. Если сумма получилась более 9-ти, опять сложите его цифры. 
+//И так, пока сумма не станет однозначным числом (9 и менее).
+
+num = 557;
+i = 0;
+
+let sumSequence = (num) => {
+  let sum = 0;
+  arr = num.toString().split('');
+  for (let i = 0; i < arr.length; i++) {
+    sum += Number(arr[i]);
+  };
+  if (sum > 9) {
+    return sumSequence(sum);
+  };
+  return sum;
+}
+
+console.log(sumSequence(num));
