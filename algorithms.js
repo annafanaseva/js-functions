@@ -127,7 +127,7 @@ let middleIndex = Math.round(end / 2);
 
 console.log(arr[middleIndex]);
 
-let key = 4;
+let key = 6;
 
 while (result !== key) {
   if (arr[middleIndex] === key) {
@@ -137,11 +137,15 @@ while (result !== key) {
 
   if (key > arr[middleIndex]) {
     arr = arr.splice(middleIndex + 1, end - middleIndex + 1);
+    end = arr.length - 1;
+    middleIndex = Math.round(end / 2);
     console.log(arr);
   }
 
   if (key < arr[middleIndex]) {
     arr = arr.splice(start, middleIndex);
+    end = arr.length - 1;
+    middleIndex = Math.round(end / 2);
     console.log(arr);
   }
 }
